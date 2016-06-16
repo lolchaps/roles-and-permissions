@@ -47,7 +47,9 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    @can('home_uri')
+                        <li><a href="{{ url('/home') }}">Home</a></li>
+                    @endcan
                 </ul>
 
                 <!-- Right Side Of Navbar -->

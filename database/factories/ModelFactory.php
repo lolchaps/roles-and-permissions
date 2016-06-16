@@ -13,9 +13,22 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'name' => 'Ren',
+        'email' => 'ren@yahoo.com',
+        'password' => bcrypt(123456),
+    ];
+});
+
+$factory->define(App\Role::class, function (Faker\Generator $faker) {
+    return [
+        'name' => 'admin',
+        'label' => 'Administrator',
+    ];
+});
+
+$factory->define(App\Permission::class, function (Faker\Generator $faker) {
+    return [
+        'name' => 'home_uri',
+        'label' => 'Home View',
     ];
 });

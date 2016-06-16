@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Gate;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        /* Via The Gate Facade */
+        if (Gate::denies('home_uri')) {
+            abort(403, 'You cannot access this page' );
+        }
+
+        /* Via Controller Authorization */
+        // $this->authorize('home_uri');
+
         return view('home');
     }
 }
